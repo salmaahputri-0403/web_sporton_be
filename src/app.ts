@@ -2,7 +2,9 @@ import express from "express";
 import cors from "cors";
 import authRoutes from "./routes/auth_routes"
 import categoryRoutes from "./routes/category.routes"
+import bankRoutes from "./routes/bank.routes"
 import productRoutes from "./routes/product.routes"
+import transactionRoutes from "./routes/transaction.routes"
 import { authenticate } from "./middlewares/auth.middlewares";
 import path from "path";
 
@@ -15,6 +17,8 @@ app.use("/uploads", express.static(path.join(__dirname,"../uploads")));
 app.use("/api/auth", authRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/product", productRoutes);
+app.use("/api/banks", bankRoutes);
+app.use("/api/transactions", transactionRoutes);
 
 app.get("/", (req, res) => {
     res.send("Sporton Backend API is Running");
